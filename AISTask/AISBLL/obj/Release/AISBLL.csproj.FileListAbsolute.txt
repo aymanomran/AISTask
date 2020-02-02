@@ -1,0 +1,12 @@
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISBLL\bin\Release\AISBLL.dll.config
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISBLL\bin\Release\AISBLL.dll
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISBLL\bin\Release\AISBLL.pdb
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISBLL\bin\Release\AISTaskDAL.dll
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISBLL\bin\Release\EntityFramework.dll
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISBLL\bin\Release\EntityFramework.SqlServer.dll
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISBLL\bin\Release\AISTaskDAL.pdb
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISBLL\bin\Release\EntityFramework.xml
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISBLL\bin\Release\EntityFramework.SqlServer.xml
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISBLL\obj\Release\AISBLL.csprojResolveAssemblyReference.cache
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISBLL\obj\Release\AISBLL.dll
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISBLL\obj\Release\AISBLL.pdb

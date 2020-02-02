@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/css/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="~/Assests/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+            AIS
+        </a>
+    </nav>
+    <div>
+
+        @RenderBody()
+    </div>
+    <script src="~/scripts/Jquery.js"></script>
+    <script src="~/scripts/bootstrap.js"></script>
+</body>
+</html>

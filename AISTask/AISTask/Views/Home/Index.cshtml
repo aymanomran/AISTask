@@ -1,0 +1,106 @@
+﻿@model AISTaskDAL.ViewModel.ItemStorPackge
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row container">
+    <div class="form-group col-md-9">
+        <input type="text" class="form-control" id="searchTxt" />
+        <input type="button" id="SearchBtn" class="btn btn-warning" value="Search" />
+ <input type="button" id="ResetBtn" class="btn btn-primary"  />
+       </div>
+
+        <div class="form-group col-md-9">
+            <div class="col-md-1">
+                <label class="CustomFont">ID</label>
+            </div>
+            <div class="col-md-6">
+                <input id="ProductID" type="text" class="form-control CustomFont" required />
+            </div>
+        </div>
+        <div class="form-group col-md-9">
+            <div class="col-md-1">
+                <label class="CustomFont">Name</label>
+            </div>
+            <div class="col-md-6">
+                <input id="ProductName" type="text" class="form-control CustomFont" required />
+            </div>
+        </div>
+
+        <div class="form-group col-md-9">
+            <div class="col-md-1">
+                <label class="CustomFont">Qty</label>
+            </div>
+            <div class="col-md-6">
+                <input id="ProductQty" type="number" class="form-control CustomFont" required />
+            </div>
+        </div>
+
+        <div class="form-group col-md-9">
+            <div class="col-md-1">
+                <label class="CustomFont">Sale Price</label>
+            </div>
+            <div class="col-md-6">
+                <input id="ProductSalePrice" type="number" class="form-control CustomFont" required />
+            </div>
+        </div>
+        <div class="form-group col-md-9">
+            <div class="col-md-1">
+                <label class="CustomFont">Purchase Price</label>
+            </div>
+            <div class="col-md-6">
+                <input id="ProductPurchasPrice" type="number" class="form-control CustomFont" required />
+            </div>
+        </div>
+
+
+        <div class="form-group col-md-9">
+            <div class="col-md-1">
+                <label class="CustomFont">Stor</label>
+            </div>
+            <div class="col-md-6">
+                <select id="StorDrop" class="form-control CustomFont">
+                    @foreach (var s in Model.Stors.ToList())
+            {
+                        <option value="@s.ID">@s.Name</option>
+                    }
+                </select>
+            </div>
+
+        </div>
+
+
+        <div class="form-group col-md-9">
+            <div class="col-md-2">
+                <label class="CustomFont">Unit Type</label>
+            </div>
+            <div class="col-md-6">
+
+                <input type="checkbox" class="CustomFont" name="Unit_Choice" value="Unit" onclick="return ValidatePetSelection();">Unit     &nbsp;&nbsp;
+                <input type="checkbox" class="CustomFont" name="Unit_Choice" value="Package" onclick="return ValidatePetSelection();">Package<br>
+                <br>
+            </div>
+
+        </div>
+
+        <div class="form-group col-md-9 packageDiv" >
+            <div class="col-md-2">
+                <label class="CustomFont">Packages</label>
+            </div>
+            <div class="col-md-6">
+
+                @foreach (var p in Model.Packages.ToList())
+            {
+                    <input type="checkbox" class="CustomFont" name="Packages" value="@p.ID">@p.Packege <br>
+
+                }
+            </div>
+
+        </div>
+
+        <div class="form-group col-md-9">
+            <input type="button" id="SaveBtn" class="btn btn-success" value="Save" />
+            <input type="button" id="DeleteBtn" class="btn btn-danger" value="Delete" />
+
+        </div>
+    </div>

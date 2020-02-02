@@ -1,0 +1,9 @@
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISTaskDAL\bin\Release\AISTaskDAL.dll.config
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISTaskDAL\bin\Release\AISTaskDAL.dll
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISTaskDAL\bin\Release\AISTaskDAL.pdb
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISTaskDAL\bin\Release\EntityFramework.dll
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISTaskDAL\bin\Release\EntityFramework.SqlServer.dll
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISTaskDAL\bin\Release\EntityFramework.xml
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISTaskDAL\bin\Release\EntityFramework.SqlServer.xml
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISTaskDAL\obj\Release\AISTaskDAL.dll
+c:\Users\AYMAN\documents\visual studio 2015\Projects\AISTask\AISTaskDAL\obj\Release\AISTaskDAL.pdb

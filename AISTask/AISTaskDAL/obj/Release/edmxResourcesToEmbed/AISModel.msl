@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EvaluationTaskDBModelStoreContainer" CdmEntityContainer="EvaluationTaskDBEntities">
+    <EntitySetMapping Name="Item">
+      <EntityTypeMapping TypeName="EvaluationTaskDBModel.Item">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="LastSalePrice" ColumnName="LastSalePrice" />
+          <ScalarProperty Name="LastPurchasePrice" ColumnName="LastPurchasePrice" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="StorID" ColumnName="StorID" />
+          <ScalarProperty Name="UnitType" ColumnName="UnitType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemPackage">
+      <EntityTypeMapping TypeName="EvaluationTaskDBModel.ItemPackage">
+        <MappingFragment StoreEntitySet="ItemPackage">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="PackageID" ColumnName="PackageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogTable">
+      <EntityTypeMapping TypeName="EvaluationTaskDBModel.LogTable">
+        <MappingFragment StoreEntitySet="LogTable">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Package">
+      <EntityTypeMapping TypeName="EvaluationTaskDBModel.Package">
+        <MappingFragment StoreEntitySet="Package">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Packege" ColumnName="Packege" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stor">
+      <EntityTypeMapping TypeName="EvaluationTaskDBModel.Stor">
+        <MappingFragment StoreEntitySet="Stor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="EvaluationTaskDBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserT">
+      <EntityTypeMapping TypeName="EvaluationTaskDBModel.UserT">
+        <MappingFragment StoreEntitySet="UserT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllItemsData">
+      <EntityTypeMapping TypeName="EvaluationTaskDBModel.AllItemsData">
+        <MappingFragment StoreEntitySet="AllItemsData">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="LastSalePrice" ColumnName="LastSalePrice" />
+          <ScalarProperty Name="LastPurchasePrice" ColumnName="LastPurchasePrice" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="UnitType" ColumnName="UnitType" />
+          <ScalarProperty Name="StorName" ColumnName="StorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllLogs">
+      <EntityTypeMapping TypeName="EvaluationTaskDBModel.AllLogs">
+        <MappingFragment StoreEntitySet="AllLogs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllPackages">
+      <EntityTypeMapping TypeName="EvaluationTaskDBModel.AllPackages">
+        <MappingFragment StoreEntitySet="AllPackages">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Packege" ColumnName="Packege" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllStors">
+      <EntityTypeMapping TypeName="EvaluationTaskDBModel.AllStors">
+        <MappingFragment StoreEntitySet="AllStors">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AddNewItem" FunctionName="EvaluationTaskDBModel.Store.AddNewItem" />
+    <FunctionImportMapping FunctionImportName="GetItemByID" FunctionName="EvaluationTaskDBModel.Store.GetItemByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EvaluationTaskDBModel.GetItemByID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="LastSalePrice" ColumnName="LastSalePrice" />
+          <ScalarProperty Name="LastPurchasePrice" ColumnName="LastPurchasePrice" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="StorID" ColumnName="StorID" />
+          <ScalarProperty Name="UnitType" ColumnName="UnitType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="MasterInsertUpdateDelete" FunctionName="EvaluationTaskDBModel.Store.MasterInsertUpdateDelete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EvaluationTaskDBModel.MasterInsertUpdateDelete_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="LastSalePrice" ColumnName="LastSalePrice" />
+          <ScalarProperty Name="LastPurchasePrice" ColumnName="LastPurchasePrice" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="UnitType" ColumnName="UnitType" />
+          <ScalarProperty Name="StorName" ColumnName="StorName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="EvaluationTaskDBModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="EvaluationTaskDBModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="EvaluationTaskDBModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="EvaluationTaskDBModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EvaluationTaskDBModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="EvaluationTaskDBModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EvaluationTaskDBModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="EvaluationTaskDBModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="EvaluationTaskDBModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="GetUserByID" FunctionName="EvaluationTaskDBModel.Store.GetUserByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EvaluationTaskDBModel.GetUserByID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="InsertIntoItemPackage" FunctionName="EvaluationTaskDBModel.Store.InsertIntoItemPackage" />
+  </EntityContainerMapping>
+</Mapping>

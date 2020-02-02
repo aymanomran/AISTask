@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EvaluationTaskDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Qty" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="LastSalePrice" Type="money" />
+    <Property Name="LastPurchasePrice" Type="money" />
+    <Property Name="SalePrice" Type="money" />
+    <Property Name="PurchasePrice" Type="money" />
+    <Property Name="StorID" Type="int" />
+    <Property Name="UnitType" Type="bit" />
+  </EntityType>
+  <EntityType Name="ItemPackage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemID" Type="nvarchar" MaxLength="50" />
+    <Property Name="PackageID" Type="int" />
+  </EntityType>
+  <EntityType Name="LogTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Packege" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Stor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UserT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EvaluationTaskDB.dbo.AllItemsData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllItemsData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="LastSalePrice" Type="money" />
+    <Property Name="LastPurchasePrice" Type="money" />
+    <Property Name="SalePrice" Type="money" />
+    <Property Name="PurchasePrice" Type="money" />
+    <Property Name="UnitType" Type="bit" />
+    <Property Name="StorName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EvaluationTaskDB.dbo.AllLogs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllLogs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EvaluationTaskDB.dbo.AllPackages' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllPackages">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Packege" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EvaluationTaskDB.dbo.AllStors' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllStors">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Item_Stor">
+    <End Role="Stor" Type="Self.Stor" Multiplicity="0..1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="StorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemPackage_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ItemPackage" Type="Self.ItemPackage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItemPackage">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemPackage_Package">
+    <End Role="Package" Type="Self.Package" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ItemPackage" Type="Self.ItemPackage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItemPackage">
+        <PropertyRef Name="PackageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LogTable_UserT">
+    <End Role="UserT" Type="Self.UserT" Multiplicity="0..1" />
+    <End Role="LogTable" Type="Self.LogTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LogTable">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AddNewItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="nvarchar" Mode="In" />
+    <Parameter Name="ItemName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Qty" Type="decimal" Mode="In" />
+    <Parameter Name="SalePrice" Type="money" Mode="In" />
+    <Parameter Name="PurchasePrice" Type="money" Mode="In" />
+    <Parameter Name="StorID" Type="int" Mode="In" />
+    <Parameter Name="UnitType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="GetItemByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ItemID" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetUserByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertIntoItemPackage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ItemID" Type="nvarchar" Mode="In" />
+    <Parameter Name="PackageID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="MasterInsertUpdateDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="nvarchar" Mode="In" />
+    <Parameter Name="ItemName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Qty" Type="decimal" Mode="In" />
+    <Parameter Name="SalePrice" Type="money" Mode="In" />
+    <Parameter Name="PurchasePrice" Type="money" Mode="In" />
+    <Parameter Name="StorID" Type="int" Mode="In" />
+    <Parameter Name="UnitType" Type="int" Mode="In" />
+    <Parameter Name="StatementType" Type="nvarchar" Mode="In" />
+    <Parameter Name="OldID" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="EvaluationTaskDBModelStoreContainer">
+    <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemPackage" EntityType="Self.ItemPackage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LogTable" EntityType="Self.LogTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stor" EntityType="Self.Stor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserT" EntityType="Self.UserT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AllItemsData" EntityType="Self.AllItemsData" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllItemsData].[ID] AS [ID], 
+    [AllItemsData].[ItemName] AS [ItemName], 
+    [AllItemsData].[Quantity] AS [Quantity], 
+    [AllItemsData].[LastSalePrice] AS [LastSalePrice], 
+    [AllItemsData].[LastPurchasePrice] AS [LastPurchasePrice], 
+    [AllItemsData].[SalePrice] AS [SalePrice], 
+    [AllItemsData].[PurchasePrice] AS [PurchasePrice], 
+    [AllItemsData].[UnitType] AS [UnitType], 
+    [AllItemsData].[StorName] AS [StorName]
+    FROM [dbo].[AllItemsData] AS [AllItemsData]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllLogs" EntityType="Self.AllLogs" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllLogs].[ID] AS [ID], 
+    [AllLogs].[Date] AS [Date], 
+    [AllLogs].[Description] AS [Description], 
+    [AllLogs].[UserID] AS [UserID], 
+    [AllLogs].[UserName] AS [UserName]
+    FROM [dbo].[AllLogs] AS [AllLogs]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllPackages" EntityType="Self.AllPackages" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllPackages].[ID] AS [ID], 
+    [AllPackages].[Packege] AS [Packege]
+    FROM [dbo].[AllPackages] AS [AllPackages]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllStors" EntityType="Self.AllStors" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllStors].[ID] AS [ID], 
+    [AllStors].[Name] AS [Name]
+    FROM [dbo].[AllStors] AS [AllStors]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Item_Stor" Association="Self.FK_Item_Stor">
+      <End Role="Stor" EntitySet="Stor" />
+      <End Role="Item" EntitySet="Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemPackage_Item" Association="Self.FK_ItemPackage_Item">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="ItemPackage" EntitySet="ItemPackage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemPackage_Package" Association="Self.FK_ItemPackage_Package">
+      <End Role="Package" EntitySet="Package" />
+      <End Role="ItemPackage" EntitySet="ItemPackage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LogTable_UserT" Association="Self.FK_LogTable_UserT">
+      <End Role="UserT" EntitySet="UserT" />
+      <End Role="LogTable" EntitySet="LogTable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
